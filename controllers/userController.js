@@ -93,7 +93,7 @@ const userController = {
                 const secret = process.env.SECRET
                 const token = jwt.sign({ id: user.id }, secret)
 
-                res.status(200).json({ msg: "Autenticação realizada com sucesso!", token });
+                res.status(200).json({ msg: "Autenticação realizada com sucesso!", token, user });
                 
             } catch(err) {
                 console.log(error)
