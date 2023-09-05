@@ -5,6 +5,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static('uploads'))
+
 // DB Connection
 const conn = require('./db/conn');
 conn();

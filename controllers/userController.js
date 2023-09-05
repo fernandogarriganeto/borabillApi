@@ -4,8 +4,6 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 
-
-
 const userController = {
     
     create: async(req, res) => {
