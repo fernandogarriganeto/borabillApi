@@ -23,6 +23,7 @@ router
     
     router
     .route('/products/:id')
+    .all(upload.single('image'))
     .get((req, res) => productController.get(req, res))
     .delete((req, res) => productController.delete(req, res))
     .put((req, res) => productController.update(req, res))

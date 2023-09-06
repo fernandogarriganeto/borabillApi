@@ -62,7 +62,7 @@ const productController = {
     delete: async(req, res) => {
         try {
 
-            const id = req.params.id;
+            const id = req.params.id;            
 
             if (id.match(/^[0-9a-fA-F]{24}$/)) {
             
@@ -90,17 +90,20 @@ const productController = {
     update: async(req, res) => {
         try {
 
-            const id = req.params.id;            
-
-            if (id.match(/^[0-9a-fA-F]{24}$/)) {
-
-                const product = {
-                    name: req.body.name,
-                    description: req.body.description,
-                    price: req.body.price,
-                    image: req.body.image
-                }
+            const id = req.params.id;
+            const file = req.file 
             
+            const product = {
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                image: file.path
+            }
+
+            const name = req.body.name
+
+            if (id.match(/^[0-9a-fA-F]{24}$/)) {                
+
                 const updateproduct = await ProductModel.findByIdAndUpdate(id, product);                            
 
                 if (!updateproduct) {
